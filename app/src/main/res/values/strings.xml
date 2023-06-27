@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Scribble</string>
+    <string name="logo">Logo</string>
+    <string name="organize_without_limits">Organize without limits</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="cont">Continue</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="or">Or</string>
+    <string name="join_a_community_which_will_help_you_in_everyday_organizing">Join a community which will help you in everyday organizing</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="go_back">Go Back</string>
+    <string name="forgot_password_no_question_mark">Forgot Password</string>
 </resources>
