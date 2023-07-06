@@ -48,6 +48,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.google.android.gms.auth.api.identity.Identity
+import com.google.firebase.auth.FirebaseAuth
 import com.upnext.scribble.R
 import com.upnext.scribble.domain.model.LoginUserParams
 import com.upnext.scribble.presentation.global_components.LoadingDialog
@@ -105,6 +106,7 @@ fun LoginScreen(
     LaunchedEffect(key1 = firestoreGoogleSignInState.error){
         if (firestoreGoogleSignInState.error.isNotBlank()){
             Toast.makeText(context, firestoreGoogleSignInState.error, Toast.LENGTH_SHORT).show()
+            FirebaseAuth.getInstance().signOut()
             loadingDialogState = false
         }
     }

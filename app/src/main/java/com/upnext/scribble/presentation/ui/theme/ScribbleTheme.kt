@@ -26,11 +26,15 @@ fun lightColors() = ScribbleColors(
     editTextSelectedTextColor = Color.Gray,
     editTextBackground = Color.LightGray,
     editTextColor = Color.Black,
+    drawerHeaderOnBackground = Color.White,
+    drawerHeaderBackground = Color(0xFF026AA7),
+    drawerBodyBackground = White,
+    drawerBodyOnBackground = Black,
     isLight = true,
 )
 
 fun darkColors() = ScribbleColors(
-    primary = Color(0xE8313131),
+    primary = Color(0xFF2B2B2B),
     text = Color(0xFFFFFFFF),
     secondaryColor = Color(0xFF89F889),
     selectedColor = Color(0xFF026AA7),
@@ -41,6 +45,10 @@ fun darkColors() = ScribbleColors(
     editTextSelectedTextColor = Color.Gray,
     editTextBackground = Color(0xFF171717),
     editTextColor = Color.White,
+    drawerHeaderOnBackground = Color.White,
+    drawerHeaderBackground = Color.Black,
+    drawerBodyBackground = Color(0xFF2B2B2B),
+    drawerBodyOnBackground = White,
     isLight = false,
 )
 
@@ -88,7 +96,7 @@ fun ScribbleTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = if (!darkTheme) Color(0xFF026AA7).toArgb() else Color(0xE8313131).toArgb()
+            window.statusBarColor = if (!darkTheme) Color(0xFF026AA7).toArgb() else Color(0xFF2B2B2B).toArgb()
         }
     }
 

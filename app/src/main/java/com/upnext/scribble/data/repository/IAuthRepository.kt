@@ -69,8 +69,14 @@ class IAuthRepository @Inject constructor(
     override suspend fun signInWithGoogleUserData(user: User): Flow<Resource<String>> = flow {
         emit(Resource.Loading())
         try {
-            firestore.collection(USERS_COLLECTION).document(user.uid)
-                .set(user, SetOptions.merge()).await()
+            val documentSnapshot = firestore.collection(USERS_COLLECTION).document(user.uid).get().await()
+
+            if (!documentSnapshot.exists()){
+                firestore.collection(USERS_COLLECTION).document(user.uid)
+                    .set(user, SetOptions.merge()).await()
+            }
+
+
             emit(Resource.Success("You have logged in successfully"))
         }catch (e: Exception){
             emit(Resource.Error(e.localizedMessage))

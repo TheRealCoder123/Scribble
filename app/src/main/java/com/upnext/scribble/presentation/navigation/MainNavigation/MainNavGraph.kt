@@ -12,7 +12,14 @@ import com.upnext.scribble.presentation.navigation.AuthNavigation.ForgotPassword
 import com.upnext.scribble.presentation.navigation.AuthNavigation.LoginScreen.LoginScreen
 import com.upnext.scribble.presentation.navigation.AuthNavigation.Routes.AuthNavRoutes
 import com.upnext.scribble.presentation.navigation.AuthNavigation.SignUpScreen.SignUpScreen
+import com.upnext.scribble.presentation.navigation.HomeNavigation.CreateBoardScreen.CreateBoardScreen
+import com.upnext.scribble.presentation.navigation.HomeNavigation.CreateCardScreen.CreateCardScreen
+import com.upnext.scribble.presentation.navigation.HomeNavigation.CreateNewWorkspaceNavigation.CreateNewWorkspaceNavRoutes
+import com.upnext.scribble.presentation.navigation.HomeNavigation.CreateNewWorkspaceNavigation.CreateWorkspaceScreen.CreateWorkspaceScreen
+import com.upnext.scribble.presentation.navigation.HomeNavigation.CreateNewWorkspaceNavigation.CreateWorkspaceViewModel
+import com.upnext.scribble.presentation.navigation.HomeNavigation.CreateNewWorkspaceNavigation.SuccessfullyCreatedWorkspaceScreen.SuccessfullyCreatedWorkspaceScreen
 import com.upnext.scribble.presentation.navigation.HomeNavigation.HomeScreen.HomeScreen
+import com.upnext.scribble.presentation.navigation.HomeNavigation.HomeViewModel
 import com.upnext.scribble.presentation.navigation.HomeNavigation.Routes.HomeNavRoutes
 import com.upnext.scribble.presentation.navigation.MainNavigation.Routes.MainGraphRoutes
 
@@ -44,8 +51,34 @@ fun MainNavigationGraph(navHostController: NavHostController) {
             route = MainGraphRoutes.HomeRoute.route
         ){
             composable(HomeNavRoutes.HomeScreen.route){
-                HomeScreen()
+                val homeViewModel = it.sharedViewModel<HomeViewModel>(navController = navHostController)
+                HomeScreen(navController = navHostController, homeViewModel = homeViewModel)
             }
+
+            composable(HomeNavRoutes.CreateBoardRoute.route){
+                CreateBoardScreen(navController = navHostController)
+            }
+
+            composable(HomeNavRoutes.CreateCardRoute.route){
+                CreateCardScreen()
+            }
+
+            navigation(
+                CreateNewWorkspaceNavRoutes.CreateWorkspaceScreen.route,
+                HomeNavRoutes.CreateWorkspaceRoute.route
+            ){
+                composable(CreateNewWorkspaceNavRoutes.CreateWorkspaceScreen.route){
+                    val createWorkspaceVm = it.sharedViewModel<CreateWorkspaceViewModel>(navController = navHostController)
+                    CreateWorkspaceScreen(navHostController, viewModel = createWorkspaceVm)
+                }
+                composable(CreateNewWorkspaceNavRoutes.SuccessfullyCreatedWorkspaceScreen.route){
+                    val createWorkspaceVm = it.sharedViewModel<CreateWorkspaceViewModel>(navController = navHostController)
+                    SuccessfullyCreatedWorkspaceScreen(createWorkspaceVm, navController = navHostController)
+                }
+            }
+
+
+
         }
     }
 

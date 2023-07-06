@@ -18,6 +18,10 @@ class ScribbleColors(
     onBackground: Color,
     success: Color,
     error: Color,
+    drawerHeaderBackground: Color,
+    drawerHeaderOnBackground: Color,
+    drawerBodyBackground: Color,
+    drawerBodyOnBackground: Color,
     isLight: Boolean,
 ) {
     var primary by mutableStateOf(primary)
@@ -56,6 +60,20 @@ class ScribbleColors(
     var onBackground by mutableStateOf(onBackground)
         private set
 
+    var drawerHeaderBackground by mutableStateOf(drawerHeaderBackground)
+        private set
+
+    var drawerHeaderOnBackground by mutableStateOf(drawerHeaderOnBackground)
+        private set
+
+
+
+    var drawerBodyBackground by mutableStateOf(drawerBodyBackground)
+        private set
+
+    var drawerBodyOnBackground by mutableStateOf(drawerBodyOnBackground)
+        private set
+
 
     fun copy(
         primary: Color = this.primary,
@@ -69,6 +87,10 @@ class ScribbleColors(
         onBackground: Color = this.onBackground,
         success: Color = this.success,
         error: Color = this.error,
+        drawerHeaderBackground: Color = this.drawerHeaderBackground,
+        drawerHeaderOnBackground: Color = this.drawerHeaderOnBackground,
+        drawerBodyBackground: Color = this.drawerBodyBackground,
+        drawerBodyOnBackground: Color = this.drawerBodyOnBackground,
         isLight: Boolean = this.isLight,
     ) = ScribbleColors(
         primary = primary,
@@ -82,6 +104,10 @@ class ScribbleColors(
         onBackground = onBackground,
         success = success,
         error = error,
+        drawerHeaderBackground = drawerHeaderBackground,
+        drawerHeaderOnBackground = drawerHeaderOnBackground,
+        drawerBodyBackground = drawerBodyBackground,
+        drawerBodyOnBackground = drawerBodyOnBackground,
         isLight = isLight,
     )
 
@@ -95,6 +121,10 @@ class ScribbleColors(
         onBackground = other.onBackground
         success = other.success
         background = other.background
+        drawerHeaderBackground = other.drawerHeaderBackground
+        drawerHeaderOnBackground = other.drawerHeaderOnBackground
+        drawerBodyBackground = other.drawerBodyBackground
+        drawerBodyOnBackground = other.drawerBodyOnBackground
         error = other.error
         isLight = other.isLight
     }

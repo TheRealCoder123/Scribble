@@ -6,6 +6,10 @@ import kotlin.random.Random
 object Firebase {
 
     const val USERS_COLLECTION = "users"
+    const val WORKSPACES_COLLECTION = "workspaces"
+    const val BOARDS_COLLECTION = "boards"
+
+    const val WORKSPACES_STORAGE_FOLDER = "workspaces"
 
     const val WebClientId = "1058610053842-bi69o2337vuin1l7i37jreopgf6qnirg.apps.googleusercontent.com"
 

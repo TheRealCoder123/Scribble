@@ -29,7 +29,7 @@ import com.upnext.scribble.presentation.ui.theme.ScribbleTheme
 fun LoadingDialog(isDialogOpen: Boolean) {
     if (isDialogOpen) {
         Dialog(
-            onDismissRequest = { /*TODO*/ },
+            onDismissRequest = {  },
             properties = DialogProperties(
                 dismissOnBackPress = false,
                 dismissOnClickOutside = false,
